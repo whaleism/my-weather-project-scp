@@ -1,7 +1,35 @@
-let now = new Date();
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#current-temperature");
+  let temperature = Math.round(response.data.temperature.current);
+  let cityElement = document.querySelector("#current-city");
+  cityElement.innerHTML = response.data.city;
+  temperatureElement.innerHTML = temperature;
+}
 
-// feature 1
-function currentTime(date) {
+function search(event) {
+  event.preventDefault();
+  let searchInputElement = document.querySelector("#search-input");
+  let city = searchInputElement.value;
+
+  let apiKey = "b2a5adcct04b33178913oc335f405433";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let day = date.getDay();
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
   let days = [
     "Sunday",
     "Monday",
@@ -11,28 +39,15 @@ function currentTime(date) {
     "Friday",
     "Saturday",
   ];
-  let day = days[now.getDay()]; // 0 and 6
 
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-
-  let newTime = `${day} ${hours}:${minutes}`;
-
-  return newTime;
+  let formattedDay = days[day];
+  return `${formattedDay} ${hours}:${minutes}`;
 }
 
-let time = document.querySelector("#current-time");
-time.innerHTML = `${currentTime(now)}`;
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", search);
 
-// feature 2
+let currentDateELement = document.querySelector("#current-date");
+let currentDate = new Date();
 
-function search(event) {
-  event.preventDefault();
-
-  let cityInput = document.querySelector("#city-input");
-  let cityName = document.querySelector("#search-city");
-  cityName.innerHTML = cityInput.value;
-}
-
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
+currentDateELement.innerHTML = formatDate(currentDate);
