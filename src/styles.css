@@ -1,0 +1,104 @@
+body {
+  background-color: #f9f7fe;
+  font-family: "Nunito", sans-serif;
+}
+
+header {
+  border-bottom: 1px solid #f9f7fe;
+  padding-bottom: 30px;
+}
+
+main {
+  padding: 25px;
+}
+
+footer {
+  background-color: white;
+  border-top: 1px solid #f9f7fe;
+  color: #a8a8a8;
+  padding-top: 10px;
+  text-align: center;
+}
+
+footer a {
+  color: #885df1;
+}
+
+form {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.search-style {
+  background-color: #f9f7fe;
+  border: none;
+  border-radius: 10px;
+  color: black;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  padding: 20px;
+  width: 80%;
+}
+
+.search-button {
+  background-color: #885df1;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  padding: 20px;
+  width: auto;
+}
+
+.weather-app {
+  /* container */
+  background-color: white;
+  border-radius: 10px;
+  margin: 50px auto;
+  max-width: 600px;
+  padding: 50px;
+}
+
+.current-weather {
+  /* Flex Container */
+  display: flex;
+  justify-content: space-between;
+}
+
+.current-city {
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.weather-details {
+  color: #a8a8a8;
+  line-height: 20px;
+}
+
+.weather-details strong {
+  color: #f65282;
+}
+
+.current-temp-con {
+  font-size: 50px;
+}
+
+.current-temp-con .material-symbols-outlined {
+  font-size: 45px;
+  top: -10px;
+  position: relative;
+}
+
+.current-temp {
+  font-size: 95px;
+  font-weight: 800;
+}
+
+.celsius-symbol {
+  font-size: 25px;
+  top: -45px;
+  left: -15px;
+  position: relative;
+}
